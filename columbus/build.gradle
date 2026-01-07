@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         minSdk 24
-        targetSdk 35
+        targetSdk 36
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -27,11 +27,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '21'
     }
     buildFeatures {
         aidl true
@@ -62,13 +62,13 @@ protobuf {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.core:core-ktx:1.17.0'
 
     //Tensorflow, used in non-CHRE usage
     implementation "org.tensorflow:tensorflow-lite-support:$tensorflow_version"
 
     //Protobuf
-    api "com.google.protobuf:protobuf-javalite:3.25.2"
+    api "com.google.protobuf:protobuf-javalite:4.33.2"
 
     compileOnly project(path: ':systemstubs')
     api project(path: ':shared')
