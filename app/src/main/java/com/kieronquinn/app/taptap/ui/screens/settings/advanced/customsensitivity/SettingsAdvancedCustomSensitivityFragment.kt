@@ -14,13 +14,13 @@ import com.kieronquinn.app.taptap.utils.extensions.onClicked
 import com.kieronquinn.app.taptap.utils.extensions.whenResumed
 import com.kieronquinn.monetcompat.extensions.views.applyMonet
 import kotlinx.coroutines.flow.take
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsAdvancedCustomSensitivityFragment: BaseBottomSheetFragment<FragmentSettingsAdvancedCustomSensitivityBinding>(FragmentSettingsAdvancedCustomSensitivityBinding::inflate) {
 
     private val viewModel by viewModel<SettingsAdvancedCustomSensitivityViewModel>()
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
 
     private val accent by lazy {
         monet.getAccentColor(requireContext())

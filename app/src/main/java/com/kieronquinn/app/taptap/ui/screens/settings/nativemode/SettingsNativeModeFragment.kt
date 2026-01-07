@@ -23,13 +23,13 @@ import com.kieronquinn.app.taptap.utils.notifications.TapTapNotificationChannel
 import com.kieronquinn.app.taptap.utils.notifications.TapTapNotificationId
 import com.kieronquinn.app.taptap.utils.notifications.TapTapNotificationIntentId
 import kotlinx.coroutines.delay
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsNativeModeFragment: BoundFragment<FragmentSettingsNativeModeBinding>(FragmentSettingsNativeModeBinding::inflate), BackAvailable {
 
     private val viewModel by viewModel<SettingsNativeModeViewModel>()
-    private val containerViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val containerViewModel by activityViewModel<ContainerSharedViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

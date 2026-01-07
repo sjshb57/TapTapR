@@ -50,7 +50,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.take
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 abstract class SettingsActionsAddGenericFragment<T : ViewBinding>(inflate: (LayoutInflater, ViewGroup?, Boolean) -> T) :
     BoundFragment<T>(inflate) {
@@ -61,7 +61,7 @@ abstract class SettingsActionsAddGenericFragment<T : ViewBinding>(inflate: (Layo
 
     abstract val viewModel: SettingsActionsAddGenericViewModel
 
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
     private val gson by inject<Gson>()
     private val accessibilityRouter by inject<TapTapAccessibilityRouter>()
 

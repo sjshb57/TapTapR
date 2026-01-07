@@ -11,13 +11,13 @@ import com.kieronquinn.app.taptap.ui.views.MonetSwitch
 import com.kieronquinn.app.taptap.utils.extensions.applyBottomInsets
 import com.kieronquinn.app.taptap.utils.extensions.onClicked
 import com.kieronquinn.app.taptap.utils.extensions.whenResumed
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsLowPowerModeFragment: BoundFragment<FragmentSettingsLowPowerModeBinding>(FragmentSettingsLowPowerModeBinding::inflate), BackAvailable {
 
     private val viewModel by viewModel<SettingsLowPowerModeViewModel>()
-    private val containerViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val containerViewModel by activityViewModel<ContainerSharedViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

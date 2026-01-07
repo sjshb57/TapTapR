@@ -15,14 +15,14 @@ import com.kieronquinn.app.taptap.utils.extensions.applyBottomInsets
 import com.kieronquinn.app.taptap.utils.extensions.onClicked
 import com.kieronquinn.app.taptap.utils.extensions.whenResumed
 import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsOptionsFragment: BoundFragment<FragmentSettingsOptionsBinding>(FragmentSettingsOptionsBinding::inflate), CanShowSnackbar {
 
     private val viewModel by viewModel<SettingsOptionsViewModel>()
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
-    private val containerViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
+    private val containerViewModel by activityViewModel<ContainerSharedViewModel>()
 
     private val adapter by lazy {
         SettingsOptionsAdapter()

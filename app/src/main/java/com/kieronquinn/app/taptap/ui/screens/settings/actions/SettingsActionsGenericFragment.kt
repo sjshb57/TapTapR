@@ -28,7 +28,7 @@ import com.kieronquinn.app.taptap.utils.extensions.scrollToBottom
 import com.kieronquinn.app.taptap.utils.extensions.whenResumed
 import com.kieronquinn.monetcompat.extensions.views.applyMonet
 import kotlinx.coroutines.flow.debounce
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 abstract class SettingsActionsGenericFragment<T: ViewBinding, A: Action>(inflate: (LayoutInflater, ViewGroup?, Boolean) -> T): BoundFragment<T>(inflate), LockCollapsed, BackAvailable {
 
@@ -39,7 +39,7 @@ abstract class SettingsActionsGenericFragment<T: ViewBinding, A: Action>(inflate
 
     abstract val viewModel: SettingsActionsGenericViewModel<A>
 
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
 
     private val adapter by lazy {
         SettingsActionsGenericAdapter(getRecyclerView(), ArrayList(), itemTouchHelper::startDrag, viewModel::onItemSelectionStateChange, viewModel::onWhenGateChipClicked)

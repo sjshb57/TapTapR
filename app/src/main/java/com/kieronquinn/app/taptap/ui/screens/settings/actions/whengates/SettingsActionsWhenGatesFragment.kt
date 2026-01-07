@@ -26,7 +26,7 @@ import com.kieronquinn.app.taptap.utils.extensions.scrollToBottom
 import com.kieronquinn.app.taptap.utils.extensions.whenResumed
 import com.kieronquinn.monetcompat.extensions.views.applyMonet
 import kotlinx.coroutines.flow.debounce
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsActionsWhenGatesFragment :
@@ -53,7 +53,7 @@ class SettingsActionsWhenGatesFragment :
         args.action
     }
 
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
     private val adapter by lazy {
         SettingsActionsWhenGatesAdapter(
             binding.settingsActionsWhenGatesRecyclerview,

@@ -47,7 +47,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.take
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsBackupRestoreRestoreFragment :
@@ -56,7 +56,7 @@ class SettingsBackupRestoreRestoreFragment :
     ), BackAvailable, ProvidesBack {
 
     private val viewModel by viewModel<SettingsBackupRestoreRestoreViewModel>()
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
     private val args by navArgs<SettingsBackupRestoreRestoreFragmentArgs>()
     private val accessibilityRouter by inject<TapTapAccessibilityRouter>()
     private val adapter by lazy {

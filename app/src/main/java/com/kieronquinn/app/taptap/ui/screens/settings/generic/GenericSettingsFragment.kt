@@ -9,13 +9,13 @@ import com.kieronquinn.app.taptap.ui.screens.container.ContainerSharedViewModel
 import com.kieronquinn.app.taptap.ui.screens.settings.generic.GenericSettingsViewModel.SettingsItem
 import com.kieronquinn.app.taptap.utils.extensions.applyBottomInsets
 import com.kieronquinn.app.taptap.utils.extensions.whenResumed
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 abstract class GenericSettingsFragment: BoundFragment<FragmentSettingsGenericBinding>(FragmentSettingsGenericBinding::inflate) {
 
     abstract val viewModel: GenericSettingsViewModel
     abstract val items: List<SettingsItem>
-    protected val containerViewModel by sharedViewModel<ContainerSharedViewModel>()
+    protected val containerViewModel by activityViewModel<ContainerSharedViewModel>()
 
     abstract fun createAdapter(items: List<SettingsItem>): GenericSettingsAdapter
 

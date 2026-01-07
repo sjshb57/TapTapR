@@ -21,14 +21,14 @@ import com.kieronquinn.monetcompat.extensions.views.applyMonet
 import com.kieronquinn.monetcompat.extensions.views.overrideRippleColor
 import io.noties.markwon.Markwon
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.roundToInt
 
 class SettingsUpdateFragment: BoundFragment<FragmentSettingsUpdateBinding>(FragmentSettingsUpdateBinding::inflate), BackAvailable {
 
     private val viewModel by viewModel<SettingsUpdateViewModel>()
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
     private val args by navArgs<SettingsUpdateFragmentArgs>()
     private val markwon by inject<Markwon>()
 

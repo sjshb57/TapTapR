@@ -54,7 +54,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ContainerFragment: BoundFragment<FragmentContainerBinding>(FragmentContainerBinding::inflate) {
@@ -110,7 +110,7 @@ class ContainerFragment: BoundFragment<FragmentContainerBinding>(FragmentContain
 
     private val navigation by inject<ContainerNavigation>()
     private val viewModel by viewModel<ContainerViewModel>()
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.kieronquinn.app.taptap.ui.screens.root.RootSharedViewModel
 import com.kieronquinn.app.taptap.utils.extensions.whenResumed
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DecisionFragment: Fragment() {
 
     private val decisionViewModel by viewModel<DecisionViewModel>()
-    private val rootSharedViewModel by sharedViewModel<RootSharedViewModel>()
+    private val rootSharedViewModel by activityViewModel<RootSharedViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

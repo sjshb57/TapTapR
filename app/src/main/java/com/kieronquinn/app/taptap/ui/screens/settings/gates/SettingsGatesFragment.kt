@@ -25,14 +25,14 @@ import com.kieronquinn.app.taptap.utils.extensions.whenResumed
 import com.kieronquinn.monetcompat.extensions.views.applyMonet
 import kotlinx.coroutines.flow.debounce
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 class SettingsGatesFragment :
     BoundFragment<FragmentSettingsGatesBinding>(FragmentSettingsGatesBinding::inflate),
     LockCollapsed, BackAvailable {
 
     private val viewModel by inject<SettingsGatesViewModel>()
-    private val sharedViewModel by sharedViewModel<ContainerSharedViewModel>()
+    private val sharedViewModel by activityViewModel<ContainerSharedViewModel>()
 
     private val adapter by lazy {
         SettingsGatesAdapter(
