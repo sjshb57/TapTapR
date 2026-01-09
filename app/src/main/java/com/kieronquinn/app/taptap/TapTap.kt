@@ -164,9 +164,10 @@ import io.noties.markwon.Markwon
 import io.noties.markwon.core.MarkwonTheme
 import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
-import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.core.scope.Scope
+import org.koin.dsl.bind
 import org.koin.dsl.module
 import org.lsposed.hiddenapibypass.HiddenApiBypass
 
@@ -206,56 +207,51 @@ class TapTap : Application() {
     }
 
     private val viewModelModule = module {
-        viewModel<RootSharedViewModel> { RootSharedViewModelImpl() }
-        viewModel<DecisionViewModel> { DecisionViewModelImpl(get(), get(), get(), get()) }
-        viewModel<SetupLandingViewModel> { SetupLandingViewModelImpl(get(), get()) }
-        viewModel<ContainerSharedViewModel> { ContainerSharedViewModelImpl(get(), get(), get(), get(), get()) }
-        viewModel<ContainerViewModel> { ContainerViewModelImpl(get(), get(), get(), get()) }
-        viewModel<SettingsMainViewModel> { SettingsMainViewModelImpl(get(), get(), get(), get()) }
-        viewModel<SettingsFeedbackViewModel> { SettingsFeedbackViewModelImpl(get()) }
-        viewModel<SettingsOptionsViewModel> { SettingsOptionsViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsAdvancedViewModel> { SettingsAdvancedViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsLowPowerModeViewModel> { SettingsLowPowerModelViewModelImpl(get(), get(), get(), get()) }
-        viewModel<SettingsAdvancedCustomSensitivityViewModel> { SettingsAdvancedCustomSensitivityViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsActionsDoubleViewModel> { SettingsActionsDoubleViewModelImpl(get(), get(), get(), get(), get(), get()) }
-        viewModel<SettingsActionsTripleViewModel> { SettingsActionsTripleViewModelImpl(get(), get(), get(), get(), get(), get()) }
-        viewModel<SettingsActionsAddCategorySelectorViewModel> { SettingsActionsAddCategorySelectorViewModelImpl(get(), get(), get())}
-        viewModel<SettingsActionsActionSelectorViewModel> { SettingsActionsActionSelectorViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsSharedAppShortcutsSelectorViewModel> { SettingsSharedAppShortcutsSelectorViewModelImpl(get(), get()) }
-        viewModel<SettingsSharedShortcutsSelectorViewModel> { SettingsSharedShortcutsSelectorViewModelImpl(get(), get())}
-        viewModel<SettingsSharedShizukuPermissionFlowViewModel> { SettingsSharedShizukuPermissionFlowViewModelImpl(get()) }
-        viewModel<SettingsSharedPackageSelectorViewModel> { SettingsSharedPackageSelectorViewModelImpl(get(), get()) }
-        viewModel<SettingsLowPowerModeShizukuInfoViewModel> { SettingsLowPowerModeShizukuInfoViewModelImpl(get()) }
-        viewModel<SettingsGatesViewModel> { SettingsGatesViewModelImpl(get(), get(), get(), get()) }
-        viewModel<SettingsGatesGateSelectorViewModel> { SettingsGatesGateSelectorViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsGatesAddCategorySelectorViewModel> { SettingsGatesAddCategorySelectorViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsActionsWhenGatesViewModelDouble> { SettingsActionsWhenGatesViewModelDoubleImpl(get(), get(), get()) }
-        viewModel<SettingsActionsWhenGatesViewModelTriple> { SettingsActionsWhenGatesViewModelTripleImpl(get(), get(), get()) }
-        viewModel<SettingsModelPickerViewModel> { SettingsModelPickerViewModelImpl(get(), get()) }
-        viewModel<SettingsBatteryViewModel> { SettingsBatteryViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsSharedSnapchatViewModel> { SettingsSharedSnapchatViewModelImpl(get(), get()) }
-        viewModel<SettingsSharedQuickSettingSelectorViewModel> { SettingsSharedQuickSettingSelectorViewModelImpl(get(), get()) }
-        viewModel<SettingsBackupRestoreViewModel> { SettingsBackupRestoreViewModelImpl(get()) }
-        viewModel<SettingsBackupRestoreBackupViewModel> { SettingsBackupRestoreBackupViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsBackupRestoreRestoreViewModel> { SettingsBackupRestoreRestoreViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsMoreViewModel> { SettingsMoreViewModelImpl(get(), get(), get()) }
-        viewModel<SettingsSharedInternetPermissionDialogViewModel> { SettingsSharedInternetPermissionDialogViewModelImpl(get()) }
-        viewModel<SettingsContributionsViewModel> { SettingsContributionsViewModelImpl(get()) }
-        viewModel<SettingsUpdateViewModel> { SettingsUpdateViewModelImpl(get(), get()) }
-        viewModel<ReachabilityViewModel> { ReachabilityViewModelImpl(get(), get()) }
-        viewModel<SetupGestureViewModel> { SetupGestureViewModelImpl(get(), get(), get(), get(), get()) }
-        viewModel<SetupInfoViewModel> { SetupInfoViewModelImpl(get(), get()) }
-        viewModel<SetupNotificationsViewModel> { SetupNotificationsViewModelImpl(get()) }
-        viewModel<SetupGestureConfigurationViewModel> { SetupGestureConfigurationViewModelImpl(get(), get()) }
-        viewModel<SetupCompleteViewModel> { SetupCompleteViewModelImpl(get(), get()) }
-        viewModel<SetupUpgradeViewModel> { SetupUpgradeViewModelImpl(get(), get()) }
-        viewModel<DisableColumbusViewModel> { DisableColumbusViewModelImpl(get(), get()) }
-        viewModel<SettingsNativeModeViewModel> { SettingsNativeModeViewModelImpl(
-            get(),
-            get(),
-            get(),
-            get()
-        ) }
+        viewModelOf(::RootSharedViewModelImpl) bind RootSharedViewModel::class
+        viewModelOf(::DecisionViewModelImpl) bind DecisionViewModel::class
+        viewModelOf(::SetupLandingViewModelImpl) bind SetupLandingViewModel::class
+        viewModelOf(::ContainerSharedViewModelImpl) bind ContainerSharedViewModel::class
+        viewModelOf(::ContainerViewModelImpl) bind ContainerViewModel::class
+        viewModelOf(::SettingsMainViewModelImpl) bind SettingsMainViewModel::class
+        viewModelOf(::SettingsFeedbackViewModelImpl) bind SettingsFeedbackViewModel::class
+        viewModelOf(::SettingsOptionsViewModelImpl) bind SettingsOptionsViewModel::class
+        viewModelOf(::SettingsAdvancedViewModelImpl) bind SettingsAdvancedViewModel::class
+        viewModelOf(::SettingsLowPowerModelViewModelImpl) bind SettingsLowPowerModeViewModel::class
+        viewModelOf(::SettingsAdvancedCustomSensitivityViewModelImpl) bind SettingsAdvancedCustomSensitivityViewModel::class
+        viewModelOf(::SettingsActionsDoubleViewModelImpl) bind SettingsActionsDoubleViewModel::class
+        viewModelOf(::SettingsActionsTripleViewModelImpl) bind SettingsActionsTripleViewModel::class
+        viewModelOf(::SettingsActionsAddCategorySelectorViewModelImpl) bind SettingsActionsAddCategorySelectorViewModel::class
+        viewModelOf(::SettingsActionsActionSelectorViewModelImpl) bind SettingsActionsActionSelectorViewModel::class
+        viewModelOf(::SettingsSharedAppShortcutsSelectorViewModelImpl) bind SettingsSharedAppShortcutsSelectorViewModel::class
+        viewModelOf(::SettingsSharedShortcutsSelectorViewModelImpl) bind SettingsSharedShortcutsSelectorViewModel::class
+        viewModelOf(::SettingsSharedShizukuPermissionFlowViewModelImpl) bind SettingsSharedShizukuPermissionFlowViewModel::class
+        viewModelOf(::SettingsSharedPackageSelectorViewModelImpl) bind SettingsSharedPackageSelectorViewModel::class
+        viewModelOf(::SettingsLowPowerModeShizukuInfoViewModelImpl) bind SettingsLowPowerModeShizukuInfoViewModel::class
+        viewModelOf(::SettingsGatesViewModelImpl) bind SettingsGatesViewModel::class
+        viewModelOf(::SettingsGatesGateSelectorViewModelImpl) bind SettingsGatesGateSelectorViewModel::class
+        viewModelOf(::SettingsGatesAddCategorySelectorViewModelImpl) bind SettingsGatesAddCategorySelectorViewModel::class
+        viewModelOf(::SettingsActionsWhenGatesViewModelDoubleImpl) bind SettingsActionsWhenGatesViewModelDouble::class
+        viewModelOf(::SettingsActionsWhenGatesViewModelTripleImpl) bind SettingsActionsWhenGatesViewModelTriple::class
+        viewModelOf(::SettingsModelPickerViewModelImpl) bind SettingsModelPickerViewModel::class
+        viewModelOf(::SettingsBatteryViewModelImpl) bind SettingsBatteryViewModel::class
+        viewModelOf(::SettingsSharedSnapchatViewModelImpl) bind SettingsSharedSnapchatViewModel::class
+        viewModelOf(::SettingsSharedQuickSettingSelectorViewModelImpl) bind SettingsSharedQuickSettingSelectorViewModel::class
+        viewModelOf(::SettingsBackupRestoreViewModelImpl) bind SettingsBackupRestoreViewModel::class
+        viewModelOf(::SettingsBackupRestoreBackupViewModelImpl) bind SettingsBackupRestoreBackupViewModel::class
+        viewModelOf(::SettingsBackupRestoreRestoreViewModelImpl) bind SettingsBackupRestoreRestoreViewModel::class
+        viewModelOf(::SettingsMoreViewModelImpl) bind SettingsMoreViewModel::class
+        viewModelOf(::SettingsSharedInternetPermissionDialogViewModelImpl) bind SettingsSharedInternetPermissionDialogViewModel::class
+        viewModelOf(::SettingsContributionsViewModelImpl) bind SettingsContributionsViewModel::class
+        viewModelOf(::SettingsUpdateViewModelImpl) bind SettingsUpdateViewModel::class
+        viewModelOf(::ReachabilityViewModelImpl) bind ReachabilityViewModel::class
+        viewModelOf(::SetupGestureViewModelImpl) bind SetupGestureViewModel::class
+        viewModelOf(::SetupInfoViewModelImpl) bind SetupInfoViewModel::class
+        viewModelOf(::SetupNotificationsViewModelImpl) bind SetupNotificationsViewModel::class
+        viewModelOf(::SetupGestureConfigurationViewModelImpl) bind SetupGestureConfigurationViewModel::class
+        viewModelOf(::SetupCompleteViewModelImpl) bind SetupCompleteViewModel::class
+        viewModelOf(::SetupUpgradeViewModelImpl) bind SetupUpgradeViewModel::class
+        viewModelOf(::DisableColumbusViewModelImpl) bind DisableColumbusViewModel::class
+        viewModelOf(::SettingsNativeModeViewModelImpl) bind SettingsNativeModeViewModel::class
     }
 
     private val navigationModule = module {

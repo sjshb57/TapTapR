@@ -57,10 +57,15 @@ android {
         viewBinding true
         aidl true
     }
-    lintOptions {
+    namespace 'com.kieronquinn.app.taptap'
+    packaging {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+    lint {
         checkReleaseBuilds true
     }
-    namespace 'com.kieronquinn.app.taptap'
 }
 
 dependencies {
